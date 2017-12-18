@@ -11,7 +11,8 @@ const AppContent = StackNavigator({
 },
   {
     cardStyle: {
-      paddingTop: 20
+      paddingTop: 20,
+      backgroundColor:'#191919'
     }
   });
 

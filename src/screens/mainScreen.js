@@ -58,18 +58,7 @@ export default class MainScreen extends Component {
     );
   };
 
-  renderSeparator = () => {
-    return (
-      <View
-        style={{
-          height: 10,
-          width: "100%",
-          backgroundColor: "#191919",
-
-        }}
-      />
-    );
-  };
+  
 
 
 
@@ -96,13 +85,13 @@ export default class MainScreen extends Component {
   render() {
     return (
       <List containerStyle={{ borderTopWidth: 0, borderBottomWidth: 0 }}>
-        <FlatList style={{ backgroundColor: '#22272b', paddingTop: 0 }}
+        <FlatList style={{ backgroundColor: '#191919', paddingTop: 0 }}
           data={this.state.data}
           renderItem={({ item }) => (
-            <StoryListItem onPress={this._onPress} story={item} />
+            <StoryListItem key={item.id} onPress={this._onPress} story={item} />
           )}
           keyExtractor={item => item.name}
-          ItemSeparatorComponent={this.renderSeparator}
+         
           ListFooterComponent={this.renderFooter}
           onRefresh={this.handleRefresh}
           refreshing={this.state.refreshing}
