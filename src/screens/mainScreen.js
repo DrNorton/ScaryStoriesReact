@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { View, FlatList, ActivityIndicator } from "react-native";
-import { List } from 'react-native-elements';
 import StoryListItem from '../components/storyListItem'
 
 export default class MainScreen extends Component {
@@ -9,7 +8,7 @@ export default class MainScreen extends Component {
     backgroundColor:'black',
     borderColor:'black',
     color:'black',
-    headerTitleStyle: { textAlign: 'center', alignSelf: 'center',color:'white' },
+    headerTitleStyle: { textAlign: 'left', alignSelf: 'flex-start', color: 'white' },
     tintColor:{color:'white'},
     headerStyle: {
         backgroundColor: '#1e2326'
@@ -84,21 +83,18 @@ export default class MainScreen extends Component {
 
   render() {
     return (
-      <List containerStyle={{ borderTopWidth: 0, borderBottomWidth: 0 }}>
-        <FlatList style={{ backgroundColor: '#191919', paddingTop: 0 }}
+        <FlatList style={{ backgroundColor: '#191919',margin: 0 }}
           data={this.state.data}
           renderItem={({ item }) => (
             <StoryListItem key={item.id} onPress={this._onPress} story={item} />
           )}
           keyExtractor={item => item.name}
-         
           ListFooterComponent={this.renderFooter}
           onRefresh={this.handleRefresh}
           refreshing={this.state.refreshing}
           onEndReached={() => {this.handleLoadMore() }}
           onEndReachedThreshold={50}
         />
-      </List>
     );
   }
 

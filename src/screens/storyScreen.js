@@ -4,7 +4,7 @@ import { ScrollView, Image, Text, ActivityIndicator } from "react-native";
 
 export default class StoryScreen extends Component {
     static navigationOptions = ({ navigation }) => ({
-        title: `${navigation.state.params.title}`,
+        // title: `${navigation.state.params.title}`,
         headerTitleStyle: { textAlign: 'left', alignSelf: 'flex-start', color: 'white' },
         headerTintColor: 'white',
         headerStyle: {
@@ -23,6 +23,7 @@ export default class StoryScreen extends Component {
     }
 
     componentDidMount() {
+        console.log('did mount storyScreen');
         this.setState({isLoading:true});
         this.makeRemoteRequest();
     }
@@ -66,8 +67,9 @@ export default class StoryScreen extends Component {
     }
 
     render() {
+      
         return <ScrollView style={{ flex: 1,width:'100%', flexDirection: 'column', backgroundColor: '#22272b' }} >
-            <Image style={{ flex: 1, width: '100%', height: 200 }} source={{ uri: 'data:image/png;base64,' + this.state.image }} />
+            <Image  style={{ flex: 1, width: '100%', height: 200 }} source={{ uri: 'data:image/png;base64,' + this.state.image }} />
             <Text style={{ flex: 3,margin:10, fontSize: 18, color: '#cdcecf' }}>{this.state.text}</Text>
             {this.state.isLoading && <ActivityIndicator style={{ position: 'absolute', left: 0, right: 0, top: 0, bottom: 0, alignItems: 'center', justifyContent: 'center' }} size='large' />}
         </ScrollView>
