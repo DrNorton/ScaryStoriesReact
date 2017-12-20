@@ -9,8 +9,8 @@ export default class MainScreen extends Component {
     backgroundColor:'black',
     borderColor:'black',
     color:'black',
-    tabBarLabel: 'Movies & TV',
-    tabBarIcon: () => (<Icon size={24} color="white" name="tv" />),
+    tabBarLabel: 'Истории',
+    tabBarIcon: () => (<Icon size={24} color="white" name="book" />),
     headerTitleStyle: { textAlign: 'left', alignSelf: 'flex-start', color: 'white' },
     tintColor:{color:'white'},
     headerStyle: {

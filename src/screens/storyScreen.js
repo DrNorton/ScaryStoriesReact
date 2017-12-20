@@ -1,14 +1,11 @@
 import React, { Component } from "react";
 import { ScrollView, Image, Text, ActivityIndicator } from "react-native";
-import Icon from 'react-native-vector-icons/MaterialIcons'
 
 
 export default class StoryScreen extends Component {
     static navigationOptions = ({ navigation }) => ({
-        // title: `${navigation.state.params.title}`,
+        title: navigation.state.params.title,
         headerTitleStyle: { textAlign: 'left', alignSelf: 'flex-start', color: 'white' },
-        tabBarLabel: 'Music',
-        tabBarIcon: () => (<Icon size={24} color="white" name="music-note" />),
         headerTintColor: 'white',
         headerStyle: {
             backgroundColor: '#1e2326',

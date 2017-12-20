@@ -6,7 +6,7 @@ import { StackNavigator, TabNavigator } from 'react-navigation';
 import { NavigationComponent } from 'react-native-material-bottom-navigation'
 import { View, StatusBar } from 'react-native';
 
-const AppContent = StackNavigator({
+const StoryStackNavigatorContent = StackNavigator({
   Main: { screen: MainScreen },
   Story: { screen: StoryScreen },
 },
@@ -17,9 +17,20 @@ const AppContent = StackNavigator({
     }
   });
 
+  const PhotoStackNavigatorContent = StackNavigator({
+    Photo: { screen: PhotoScreen }
+  },
+    {
+      cardStyle: {
+        paddingTop: 20,
+        backgroundColor: '#191919'
+      }
+    });
+  
+
 const TabNavigatorContent = TabNavigator({
-  Main: { screen: AppContent },
-  Photo: { screen: PhotoScreen }
+  MainNav: { screen: StoryStackNavigatorContent },
+  PhotoNav: { screen: PhotoStackNavigatorContent }
 }, {
   tabBarPosition: 'bottom',
     tabBarComponent: NavigationComponent, tabBarOptions: {
@@ -27,12 +38,13 @@ const TabNavigatorContent = TabNavigator({
         labelColor: 'white',
         rippleColor: 'white',
         tabs: {
-          Main: {
-            barBackgroundColor: '#37474F'
+          MainNav: {
+            barBackgroundColor: '#191919'
           },
-          Story: {
-            barBackgroundColor: '#00796B'
-          }
+          PhotoNav: {
+            barBackgroundColor: '#191919'
+          },
+          
          
         }
       }
