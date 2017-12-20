@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { View, FlatList, ActivityIndicator } from "react-native";
 import StoryListItem from '../components/storyListItem'
+import Icon from 'react-native-vector-icons/MaterialIcons'
 
 export default class MainScreen extends Component {
   static navigationOptions = {
@@ -8,6 +9,8 @@ export default class MainScreen extends Component {
     backgroundColor:'black',
     borderColor:'black',
     color:'black',
+    tabBarLabel: 'Movies & TV',
+    tabBarIcon: () => (<Icon size={24} color="white" name="tv" />),
     headerTitleStyle: { textAlign: 'left', alignSelf: 'flex-start', color: 'white' },
     tintColor:{color:'white'},
     headerStyle: {

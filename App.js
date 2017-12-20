@@ -2,9 +2,9 @@ import React from "react";
 import MainScreen from './src/screens/mainScreen'
 import StoryScreen from './src/screens/storyScreen'
 import PhotoScreen from './src/screens/photoScreen'
-import { StackNavigator,TabNavigator } from 'react-navigation';
+import { StackNavigator, TabNavigator } from 'react-navigation';
+import { NavigationComponent } from 'react-native-material-bottom-navigation'
 import { View, StatusBar } from 'react-native';
-
 
 const AppContent = StackNavigator({
   Main: { screen: MainScreen },
@@ -18,9 +18,25 @@ const AppContent = StackNavigator({
   });
 
 const TabNavigatorContent = TabNavigator({
-  Main: { screen: MainScreen },
+  Main: { screen: AppContent },
   Photo: { screen: PhotoScreen }
-});
+}, {
+  tabBarPosition: 'bottom',
+    tabBarComponent: NavigationComponent, tabBarOptions: {
+      bottomNavigationOptions: {
+        labelColor: 'white',
+        rippleColor: 'white',
+        tabs: {
+          Main: {
+            barBackgroundColor: '#37474F'
+          },
+          Story: {
+            barBackgroundColor: '#00796B'
+          }
+         
+        }
+      }
+    }});
 
 
 const App = () =>
